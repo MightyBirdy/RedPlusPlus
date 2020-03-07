@@ -1,69 +1,90 @@
-# Linux
+# Install Guide
 
-	sudo apt-get install make gcc bison git python python-setuptools
-	sudo easy_install pypng
-
-	git clone git://github.com/bentley/rgbds.git
-	cd rgbds
-	sudo make install
-	cd ..
-
-	git clone --recursive git://github.com/TheFakeMateo/RedPlusPlus.git
-	cd RedPlusPlus
-
-To build **pokered.gbc** and **pokeblue.gbc**:
-
-	make
-
-To build them individually:
-
-	make red
-	make blue
+If you just want to play Red++, use one of the .ips patches as described in [README.md](README.md). To build a ROM yourself from the source code, follow these instructions.
 
 
-# Mac
+## Windows
 
-In the shell, run:
+To build on Windows, install [**Cygwin**](http://cygwin.com/install.html) with the default settings.
 
-	xcode-select --install
-	sudo easy_install pypng
-
-	git clone git://github.com/bentley/rgbds.git
-	cd rgbds
-	sudo make install
-	cd ..
-
-	git clone --recursive git://github.com/TheFakeMateo/RedPlusPlus.git
-	cd RedPlusPlus
-
-	make
-
-
-
-# Windows
-
-It is probably easiest to just follow [**This Video Tutorial**](https://www.youtube.com/watch?v=fYytG7IUUWg).
-Just use this project's url instead of the vanilla Pokered url.
-
-
-Original instructions are below:
-
-To build on Windows, use [**Cygwin**](http://cygwin.com/install.html). Use the default settings.
-
-Then get the most recent version of [**rgbds**](https://github.com/bentley/rgbds/releases/).
-Extract the archive and put `rgbasm.exe`, `rgblink.exe` and `rgbfix.exe` in `C:\cygwin\usr\local\bin`.
+In the installer, select the following packages: `git`, `python`, `make`, and `gcc-core`.
 
 In the **Cygwin terminal**:
 
-	install $(lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg) /bin
-	apt-cyg install make git python gettext
+```bash
+git clone https://github.com/TheFakeMateo/RedPlusPlus.git
+cd RedPlusPlus
+mkdir rgbds
+```
 
-	lynx -source bootstrap.pypa.io/get-pip.py | python
-	pip install pypng
+Then download [**rgbds**](https://github.com/bentley/rgbds/). You'll need version 0.3.3 or later. Extract the archive and put all the .exe and .dll files in RedPlusPlus/rgbds.
 
-	git clone --recursive https://github.com/TheFakeMateo/RedPlusPlus.git
-	cd RedPlusPlus
+To build **redplusplus.gbc**:
 
-	make
-	
-"pokered.gbc" will be the "Normal" version and "pokeblue.gbc" will be the "Hard" version.
+```bash
+make
+```
+
+To build other versions:
+
+```bash
+make [debug]
+```
+
+
+## Linux
+
+Python 2.7 is required.
+
+```bash
+sudo apt-get install make python gcc git bison
+
+git clone https://github.com/rednex/rgbds.git
+cd rgbds
+sudo make install
+cd ..
+
+git clone https://github.com/TheFakeMateo/RedPlusPlus.git
+cd RedPlusPlus
+```
+
+To build **redplusplus.gbc**:
+
+```bash
+make
+```
+
+To build other versions:
+
+```bash
+make [debug]
+```
+
+
+## Mac OS X
+
+In **Terminal**, run:
+
+```bash
+xcode-select --install
+
+git clone https://github.com/rednex/rgbds.git
+cd rgbds
+sudo make install
+cd ..
+
+git clone https://github.com/TheFakeMateo/RedPlusPlus.git
+cd RedPlusPlus
+```
+
+To build **redplusplus.gbc**:
+
+```bash
+make
+```
+
+To build other versions:
+
+```bash
+make [debug]
+```
